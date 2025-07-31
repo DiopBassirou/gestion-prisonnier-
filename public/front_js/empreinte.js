@@ -4,8 +4,6 @@
   document.getElementById("form-empreinte").addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const num_ecrou = localStorage.getItem("num_ecrou"); 
-
     const data = {
       num_ecrou: num_ecrou,
       main: document.getElementById("main").value,
