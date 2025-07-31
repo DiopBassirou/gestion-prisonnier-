@@ -104,6 +104,7 @@
           <th>Établissement</th>
           <th>Details</th>
           <th>Telecharger PDF</th>
+          <th>Edit</th>
         </tr>
       </thead>
       <tbody id="tbody">

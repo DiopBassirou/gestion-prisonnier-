@@ -1,13 +1,13 @@
 <?php
 class Db{
-    // private  string $host='localhost';
-    // private string $user ="root";
-    // private string $dbname="prison";
-    // private string $password="";
-    private string $host = 'mysql-prison.alwaysdata.net';
-    private string $user = 'prison'; 
-    private string $dbname = 'prison_database'; 
-    private string $password = 'gestion1234';
+    private  string $host='localhost';
+    private string $user ="root";
+    private string $dbname="prison";
+    private string $password="";
+    // private string $host = 'mysql-prison.alwaysdata.net';
+    // private string $user = 'prison'; 
+    // private string $dbname = 'prison_database'; 
+    // private string $password = 'gestion1234';
     public PDO $db;
 
     public function __construct() {

@@ -12,7 +12,7 @@ class Empreinte {
     public function __construct(PDO $pdo, $data) {
         $this->pdo = $pdo;
 
-        $this->num_ecrou = $data['num_ecrou'] ?? null;
+        $this->num_ecrou = $_SESSION['num_ecrou'] ?? null;
         $this->main = $data['main'] ?? null;
         $this->doigt = $data['doigt'] ?? null;
         $this->id_sdk = $data['id_sdk'] ?? null;

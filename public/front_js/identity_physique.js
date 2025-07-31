@@ -1,42 +1,36 @@
- //cette fonction me permet d'avoir une apercue de l'image du detenu que je vais inserer
- document.getElementById("photo").addEventListener("input",(e)=>{
-     const url=document.getElementById("photo").value.trim()
-     let img=document.getElementById("image")
-     if(url){
-        img.src=url;
-        img.style.display = 'block';
-    }else {
-        img.style.display = 'none';
-    }
- })
+document.getElementById("photo").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    const img = document.getElementById("image");
+    img.src = URL.createObjectURL(file); // apercu
+    img.style.display = 'block';
+  }
+});
 
- document.getElementById("form-identite").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const data = {
-      num_ecrou: localStorage.getItem("num_ecrou"),
-      taille: document.getElementById("taille").value.trim(),
-      corpulence: document.getElementById("corpulence").value.trim(),
-      yeux: document.getElementById("yeux").value.trim(),
-      cheveux: document.getElementById("cheveux").value.trim(),
-      teint: document.getElementById("teint").value.trim(),
-      signes_particuliers: document.getElementById("signes_particuliers").value.trim(),
-      photo: document.getElementById("photo").value.trim()
-    };
-    fetch("/fiche_ecrou/public/controller/IdentitePhysiqueController.php", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(result => {
-      if(result.success){
-        document.getElementById("message").innerHTML = `<div class="alert alert-success">${result.message}</div>`;
-        setTimeout(()=>{ window.location.href="index.php?page="+result.page_suiv},1000)
-      }else{
-        document.getElementById("message").innerHTML = `<div class="alert alert-danger">${result.message}</div>`;
-      }
-    })
-    .catch(e => {
-            console.log(e);
-    });
-  });
+document.getElementById("form-identite").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const formData = new FormData();
+  formData.append("photo", document.getElementById("photo").files[0]);
+  formData.append("taille", document.getElementById("taille").value.trim());
+  formData.append("corpulence", document.getElementById("corpulence").value.trim());
+  formData.append("yeux", document.getElementById("yeux").value.trim());
+  formData.append("cheveux", document.getElementById("cheveux").value.trim());
+  formData.append("teint", document.getElementById("teint").value.trim());
+  formData.append("signes_particuliers", document.getElementById("signes_particuliers").value.trim());
+
+  fetch("/fiche_ecrou/public/controller/IdentitePhysiqueController.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.json())
+  .then(result => {
+    if(result.success){
+      document.getElementById("message").innerHTML = `<div class="alert alert-success">${result.message}</div>`;
+      setTimeout(() => window.location.href = "index.php?page=" + result.page_suiv, 1000);
+    } else {
+      document.getElementById("message").innerHTML = `<div class="alert alert-danger">${result.message}</div>`;
+    }
+  })
+  .catch(e => console.log(e));
+});

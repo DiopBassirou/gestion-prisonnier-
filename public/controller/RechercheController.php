@@ -24,6 +24,7 @@ class RechercheController {
 
             switch ($key) {
                 case 'nom':
+                case 'num_ecrou':
                 case 'prenoms':
                 case 'profession':
                 case 'niveau_instruction':
@@ -34,6 +35,11 @@ class RechercheController {
 
                 case 'nationalite':
                     $conditions[] = "d.nationalite = ?";
+                    $params[] = $value;
+                    break;
+
+                case 'num_ecrou':
+                    $conditions[] = "d.num_ecrou = ?";
                     $params[] = $value;
                     break;
 

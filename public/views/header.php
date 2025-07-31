@@ -36,7 +36,9 @@ $current_title = $titles[$page] ?? "Gestion Prison";
       <?php if($_SESSION['role']=='admin') :?>
       <li class="nav-item"><a class="nav-link" href="index.php?page=inscription"><i class="fas fa-user-plus"></i> Ajouter user</a></li>
       <li class="nav-item"><a class="nav-link" href="index.php?page=form_fiche_ecrou"><i class="fas fa-user"></i> Enregistrer détenu</a></li>
-      <li class="nav-item"><a class="nav-link" href="index.php?page=titre_detention"><i class="fas fa-file-alt"></i> Titre de détention</a></li>
+      <li class="nav-item"><a class="nav-link" href="index.php?page=titreDetProvisoir"><i class="fas fa-file-alt"></i>Titre de detention Provisoir</a></li>
+      <li class="nav-item"><a class="nav-link" href="index.php?page=condamnation"><i class="fas fa-file-alt"></i>Condamnation</a></li>
+      <li class="nav-item"><a class="nav-link" href="index.php?page=suivi_des_detention"><i class="fas fa-file-alt"></i>Suivi des detentions</a></li>
       <li class="nav-item"><a class="nav-link" href="index.php?page=historique"><i class="fas fa-history"></i> Historique</a></li>
       <li class="nav-item"><a class="nav-link" href="index.php?page=enrollement"><i class="fas fa-history"></i>Enrollement</a></li>
       <li class="nav-item"><a class="nav-link" href="index.php?page=info_detenu"><i class="fas fa-search"></i> Recherche par empreinte</a></li>
@@ -56,7 +58,8 @@ $current_title = $titles[$page] ?? "Gestion Prison";
       <li class="nav-item"><a class="nav-link" href="index.php?page=recherche"><i class="fas fa-search"></i> Recherche</a></li>
       <?php endif ?>
       <?php if($_SESSION['role']=='greffier') :?>
-      <li class="nav-item"><a class="nav-link" href="index.php?page=titre_detention"><i class="fas fa-file-alt"></i> Titre de détention</a></li>
+      <li class="nav-item"><a class="nav-link" href="index.php?page=titreDetProvisoir"><i class="fas fa-file-alt"></i>Titre de detention Provisoir</a></li>
+      <li class="nav-item"><a class="nav-link" href="index.php?page=condamnation"><i class="fas fa-file-alt"></i>Condamnation</a></li>
       <li class="nav-item"><a class="nav-link" href="index.php?page=historique"><i class="fas fa-history"></i> Historique</a></li>
       <li class="nav-item"><a class="nav-link" href="index.php?page=info_detenu"><i class="fas fa-search"></i> Recherche par empreinte</a></li>
       <li class="nav-item"><a class="nav-link" href="index.php?page=recherche"><i class="fas fa-search"></i> Recherche</a></li>

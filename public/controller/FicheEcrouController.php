@@ -39,7 +39,6 @@ $database=new Db();
                 }
             }
         }
-
         function getAllLangue(){
             $sql="SELECT * FROM langue";
             $stmt=$this->pdo->prepare($sql);
@@ -104,6 +103,7 @@ $database=new Db();
 
                     $stm->execute([$this->num_ecrou,$langue]);
                 }
+                $_SESSION['num_ecrou']=$this->num_ecrou;
                 echo json_encode(["success"=>true,"num_ecrou"=>$this->num_ecrou,"message"=>"detenu enregistre","page_suiv"=>"identity_physique"]);
                 exit;
             } catch (PDOException $e) {

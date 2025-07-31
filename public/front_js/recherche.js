@@ -16,7 +16,7 @@ document.getElementById('form-recherche').addEventListener('submit', async funct
   }
 
   try {
-    const res = await fetch('/fiche_ecrou/public/controller/RechercheController.php', {
+    const res = await fetch('../controller/RechercheController.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)

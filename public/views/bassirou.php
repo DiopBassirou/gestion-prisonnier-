@@ -16,6 +16,18 @@ $pdo=$bd->db;
         $stm=$pdo->prepare($sql);
         $stm->execute([$num]);
         $data=$stm->fetch();
+        if(!$data){
+            $sql="SELECT d.* , e.nom_etablissement as nom_etablissement,i.* /*, t.**/ , GROUP_CONCAT(l.langues SEPARATOR ', ') AS langues FROM detenu d
+              JOIN etablissement e ON d.id_etablissement=e.id_etablissement 
+              JOIN identite_physique i ON i.num_ecrou=d.num_ecrou 
+            --   JOIN titre_detention t ON d.num_ecrou=t.num_ecrou 
+              JOIN detenu_langue dt ON d.num_ecrou=dt.num_ecrou 
+              JOIN langue  l ON dt.id_langue=l.id_langue   
+              where d.num_ecrou=?";
+        $stm=$pdo->prepare($sql);
+        $stm->execute([$num]);
+        $data=$stm->fetch();
+        }
         //var_dump($data);
     }catch (PDOException $e) {
         echo $e->getMessage();
@@ -208,9 +220,10 @@ ini_set("display_errors", 0);
    $pdf->SetXY(140,20);
    $pdf->setFont('Arial','B',12);
    $pdf->Cell(45,60,"",1);
-
+   var_dump($data['photo']);
+if(!empty($data['photo'])){
    $pdf->Image($data['photo'],140.5,25,44,48);
-
+}
    //je commence les lignes de la premier case 
    $pdf->SetXY(25,20);
    $pdf->setFont('Arial','B',12);

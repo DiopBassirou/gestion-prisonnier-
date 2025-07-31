@@ -1,0 +1,18 @@
+RewriteEngine On
+
+# Rediriger vers HTTPS si disponible
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Rediriger www vers non-www ou inversement
+# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+# RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# Masquer l'extension .php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# Gestion des erreurs
+ErrorDocument 404 /404.php
+ErrorDocument 403 /403.php

@@ -1,4 +1,4 @@
-fetch("/fiche_ecrou/public/controller/enrollementController.php")
+fetch("../controller/enrollementController.php")
 .then(res=>res.json())
 .then(data=>{
   console.log(data);

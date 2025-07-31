@@ -6,10 +6,10 @@ $pdo=$database->db;
 if(isset($_GET['ecrou'])){
     try{
         $num=$_GET['ecrou'];
-        $sql="SELECT d.* , e.nom_etablissement as nom_etablissement,i.photo as photo ,t.*  FROM detenu d
+        $sql="SELECT d.* , e.nom_etablissement as nom_etablissement,i.photo as photo /*t.**/  FROM detenu d
               JOIN etablissement e ON d.id_etablissement=e.id_etablissement
               JOIN identite_physique i ON i.num_ecrou=d.num_ecrou
-              JOIN titre_detention t ON t.num_ecrou=d.num_ecrou
+            --   JOIN titre_detention t ON t.num_ecrou=d.num_ecrou
               where d.num_ecrou=?
           ";
         $stm=$pdo->prepare($sql);
@@ -27,7 +27,7 @@ if(isset($_GET['ecrou'])){
                 $sql="SELECT d.* , e.nom_etablissement as nom_etablissement FROM detenu d 
                     JOIN etablissement e ON d.id_etablissement=e.id_etablissement 
                     JOIN titre_detention t ON t.num_ecrou=d.num_ecrou
-                    JOIN identite_physique i ON i.num_ecrou=d.num_ecrou
+                    -- JOIN identite_physique i ON i.num_ecrou=d.num_ecrou
                     WHERE d.id_etablissement=?";
                 $stm=$pdo->prepare($sql);
                 $stm->execute([$idEtablissement]);
@@ -37,7 +37,7 @@ if(isset($_GET['ecrou'])){
             }else{
                 $sql="SELECT d.* , e.nom_etablissement as nom_etablissement FROM detenu d 
                   JOIN etablissement e ON d.id_etablissement=e.id_etablissement 
-                  JOIN titre_detention t ON t.num_ecrou=d.num_ecrou
+                --   JOIN titre_detention t ON t.num_ecrou=d.num_ecrou
                   JOIN identite_physique i ON i.num_ecrou=d.num_ecrou";
                 $stm=$pdo->prepare($sql);
                 $stm->execute();

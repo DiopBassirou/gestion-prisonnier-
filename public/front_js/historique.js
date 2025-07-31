@@ -1,6 +1,6 @@
 const tbody=document.getElementById("tbody")
 let modal//cette variable control l'ouverture et la fermeture de l'afficher des details d'un 
-fetch("/fiche_ecrou/public/controller/HistoriqueController.php")
+fetch("../controller/HistoriqueController.php")
 .then(res=>res.json())
 .then(data=>{
     const tbody = document.getElementById("tbody");
@@ -20,6 +20,9 @@ fetch("/fiche_ecrou/public/controller/HistoriqueController.php")
         </td>
         <td>
             <a style="text-decoration: none;"  class="btn btn-danger btn-sm " href="views/bassirou.php?ecrou=${d.num_ecrou}" target="_blank">PDF</a>
+        </td>
+        <td>
+            <a style="text-decoration: none;"  class="btn btn-danger btn-sm " href="index.php?page=modifiFiche_ecrou&ecrou=${d.num_ecrou}">Modifier</a>
         </td>
       `;
       tbody.appendChild(tr);

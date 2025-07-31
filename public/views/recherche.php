@@ -7,18 +7,22 @@
 </head>
 <body>
 <div class="container mt-4">
-  <h3 class="mb-4">Recherche avancée des détenus</h3>
+  <h3 class="mb-3">Recherche avancée des détenus</h3>
   <form id="form-recherche" class="border p-4 rounded shadow-sm">
     <div class="row mb-3">
       <div class="col-md-4">
+        <label>Numero ecrou</label>
+        <input type="text" name="num_ecrou" class="form-control">
+      </div>
+      <div class="col-md-3">
         <label>Nom</label>
         <input type="text" name="nom" class="form-control">
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <label>Prénoms</label>
         <input type="text" name="prenoms" class="form-control">
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <label>Sexe</label>
         <select name="sexe" class="form-select">
           <option value="">Tous</option>

@@ -46,7 +46,7 @@
 
     <div class="mb-3">
       <label for="photo" class="form-label">Photo du détenu</label>
-      <input type="file" id="photo" class="form-control" accept="image/*" required>
+      <input type="file" id="photo" class="form-control" accept="image/*" >
     </div>
     <div class="mb-3">
       <img src="" id="image" alt="Aperçu photo" class="img-thumbnail" style="max-width: 200px;">
@@ -58,6 +58,6 @@
 
 </div>
 
-<script src="front_js/identity_physique.js" defer></script>
+<script src="front_js/modifiIdentity.js" defer></script>
 </body>
 </html>

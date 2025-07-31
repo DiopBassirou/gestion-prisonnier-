@@ -5,7 +5,7 @@ document.getElementById("form").addEventListener("submit",async(e)=>{
         "email":document.getElementById("email").value.trim()
     }
     try{
-        const res=await fetch("/fiche_ecrou/public/controller/ConnexionController.php",{
+        const res=await fetch("../controller/ConnexionController.php",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(data)
